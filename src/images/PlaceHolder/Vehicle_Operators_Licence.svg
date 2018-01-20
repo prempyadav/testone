@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xVehicle Operator's Licence</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Account-Management" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Step-2---Company-Documents" transform="translate(-660.000000, -1195.000000)">
+            <g id="Vehicle-Operator's-Licence" transform="translate(370.000000, 1061.000000)">
+                <g id="Drag-&amp;-Drop" transform="translate(0.000000, 40.000000)">
+                    <g id="Vehicle-Operator's-Licence" transform="translate(290.000000, 94.000000)">
+                        <circle id="Oval-3" fill="#E7F3F9" cx="60" cy="60" r="60"></circle>
+                        <ellipse id="Oval-3" fill="#DAEAF2" cx="60" cy="87.5" rx="49" ry="9.5"></ellipse>
+                        <g id="option-2-copy" transform="translate(18.000000, 27.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#E7F3F9" stroke-linejoin="round">
+                            <polygon id="Stroke-3" points="0 61 84 61 84 0 0 0"></polygon>
+                        </g>
+                        <g id="option-2-copy" transform="translate(22.000000, 31.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#FFFFFF" stroke-linejoin="round">
+                            <polygon id="Stroke-3" points="0 53 76 53 76 0 0 0"></polygon>
+                        </g>
+                        <path d="M56,44.5 L88,44.5" id="Stroke-6" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M56,52.5 L73.5285481,52.5" id="Stroke-6-Copy" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M31,74.5 L40.5131488,74.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M31,65.5 L55.5051015,65.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M46,74.5 L55.5131488,74.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M62,74.3010129 C63.6831436,74.1138161 65.4642807,72.3958376 66.8882788,70.5375429 L69.1333384,67.028335 C70.05044,65.0723723 70.7422544,63.4077856 70.5381285,61.4563808 C70.4739932,60.7658687 70.2617283,59.6114341 69.5588449,59.5772503 C69.5451714,59.5762736 69.5305212,59.5759481 69.515871,59.5759481 C68.3982246,59.5759481 66.6512713,61.6559489 66.3162704,63.4051812 C65.9731305,65.1283686 66.4783991,67.6739198 67.5107489,69.6858787 L68.0300166,70.581819 C68.5639345,71.3953927 69.1925903,72.0585578 69.8889624,72.4495549 C70.7194652,72.9479868 71.5330389,73.0544448 72.3212189,72.7751146 C73.5016983,72.3561193 74.6567841,71.0034188 75.2636274,69.3306931 C75.3196237,69.1763778 75.4508242,69.0637341 75.6113251,69.0308526 C75.7653149,68.9976455 75.935257,69.0510373 76.0465984,69.1721455 C76.2774203,69.4211987 76.4727561,69.6448582 76.6426982,69.8408451 C77.4601786,70.783666 77.4588764,70.7885494 78.4355555,70.019903 C78.7275825,69.8004757 78.948312,69.6214179 79.1273698,69.4755672 C80.1261869,68.667528 80.3231505,68.7088741 81.5625563,69.294556 C81.7608221,69.3879916 81.9952251,69.4983563 82.2742298,69.6240224 C84.8207577,70.677208 86.7353742,70.2907686 88.9550402,69.8480074 C89.9069767,69.6578806 90.8917948,69.4605914 92,69.3593423" id="Page-1" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round"></path>
+                        <path d="M46.5682734,47.9099337 C46.5682734,52.096602 43.1706129,55.4901096 38.9775993,55.4901096 C34.7858075,55.4901096 31.388147,52.096602 31.388147,47.9099337 C31.388147,43.7232653 34.7858075,40.3297577 38.9775993,40.3297577 C43.1706129,40.3297577 46.5682734,43.7232653 46.5682734,47.9099337 Z" id="Stroke-9" stroke="#C7E4F1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

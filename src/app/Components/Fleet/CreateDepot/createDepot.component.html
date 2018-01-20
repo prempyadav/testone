@@ -1,0 +1,39 @@
+<div class="TC_createDepot">
+    <div class="TC_fleetInfoGraph">
+        <img src="/images/ic_fleet.png" width="150" />
+        <label>Fleet Section</label>
+    </div>
+    <div class="TC_info">
+        <i></i>
+        In order to add your first vehicle, it is mandatory to create a depot first. You can add more vehicles and more depots after this step.
+    </div>
+    <div class="TC_pathArrow">
+        <img src="/images/ic_pathArrow.png" />
+    </div>
+    <div class="TC_depotInfoGraph">
+        <img src="/images/ic_depot.png" />
+        <label>Depot</label>
+    </div>
+    <div class="TC_actions">
+        <input type="button" class="actBtn btn-blue" value="Add Depot" />
+    </div>
+</div>
+<div class="modal-dialog" *ngIf="modelDialog">
+    <div class="modal-header">
+        Add Depot
+    </div>
+    <div class="modal-content">
+        <div class="col-lg-6">
+            <h2>Depot Details</h2>
+        </div>
+        <div class="col-lg-6">
+            <h2>Map</h2>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="TC_actions">
+            <input type="button" class="actBtn btn-default" value="Cancel" />
+            <input type="button" class="actBtn btn-blue" value="Add Depot" />
+        </div>
+    </div>
+</div>

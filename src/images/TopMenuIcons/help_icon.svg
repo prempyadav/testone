@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>help icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-2.1%" y="-2.1%" width="104.2%" height="108.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Global-Navigation-Bar" transform="translate(-1196.000000, -28.000000)">
+            <g id="help-icon">
+                <g filter="url(#filter-1)" transform="translate(1196.000000, 28.000000)">
+                    <path d="M23.3688,11.9998737 C23.3688,18.2790316 18.2795368,23.3682947 12.0003789,23.3682947 C5.72122105,23.3682947 0.631957895,18.2790316 0.631957895,11.9998737 C0.631957895,5.72071579 5.72122105,0.631452632 12.0003789,0.631452632 C18.2795368,0.631452632 23.3688,5.72071579 23.3688,11.9998737 Z" id="Stroke-5" stroke="#FD7F10" fill="#FCA000" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9.07376842,9.58269474 C9.07376842,7.93932632 10.4291368,6.61174737 12.0826105,6.65722105 C13.6097684,6.70016842 14.8830316,7.97343158 14.9247158,9.49932632 C14.9537684,10.5186947 14.4598737,11.4243789 13.6931368,11.9700632 C12.6434526,12.7140632 12.0005053,12.6408 12.0005053,13.9266947 L12.0005053,15.7810105" id="Stroke-1" stroke="#FFFFFF" stroke-linejoin="round"></path>
+                    <path d="M12.7577684,17.8494316 C12.7577684,18.2675368 12.4179789,18.6073263 11.9998737,18.6073263 C11.5817684,18.6073263 11.2432421,18.2675368 11.2432421,17.8494316 C11.2432421,17.4313263 11.5817684,17.0915368 11.9998737,17.0915368 C12.4179789,17.0915368 12.7577684,17.4313263 12.7577684,17.8494316" id="Fill-3" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

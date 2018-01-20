@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xDriver active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Driver-active">
+            <path d="M19.3881591,9.94429545 C19.3881591,15.1602273 15.1597955,19.3885909 9.94386364,19.3885909 C4.72836364,19.3885909 0.5,15.1602273 0.5,9.94429545 C0.5,6.29327273 2.57143182,3.12631818 5.60322727,1.5545 C6.903,0.880863636 8.37895455,0.5 9.94386364,0.5 C15.1597955,0.5 19.3881591,4.72836364 19.3881591,9.94429545 Z" id="Stroke-7" fill="#FFFFFF"></path>
+            <polyline id="Stroke-9" stroke="#FD7F10" stroke-linejoin="round" points="8.15609318 6.09390227 8.90270682 8.63385682 8.90270682 9.20731136 6.94743409 18.5669705"></polyline>
+            <polyline id="Stroke-11" stroke="#FD7F10" stroke-linejoin="round" points="11.7109932 6.09390227 10.9829477 8.63385682 10.9829477 9.20731136 12.9412432 18.5669705"></polyline>
+            <polyline id="Stroke-15" stroke="#128EC2" stroke-linecap="round" stroke-linejoin="round" points="4.19044773 2.45548864 6.44065227 7.22017045 9.94399318 4.80328409 5.31662955 1.71017045"></polyline>
+            <polyline id="Stroke-17" stroke="#128EC2" stroke-linecap="round" stroke-linejoin="round" points="15.6981432 2.45548864 13.4475068 7.22017045 9.94416591 4.80328409 14.5715295 1.71017045"></polyline>
+            <path d="M19.5,10 C19.5,4.75330647 15.2465963,0.5 9.99977138,0.5 C8.45901694,0.5 6.97176529,0.867001594 5.63375449,1.56043984 C2.50548872,3.18223546 0.5,6.41254949 0.5,10 C0.5,15.2466264 4.75333654,19.5 9.99977138,19.5 C15.2465963,19.5 19.5,15.2466935 19.5,10 Z" id="Stroke-7" stroke="#128EC2"></path>
+        </g>
+    </g>
+</svg>

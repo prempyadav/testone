@@ -1,0 +1,37 @@
+
+    <div class="loginForm">
+        <h1>{{"Login"|toL10}}</h1>
+        <form class="form" name="frmLoginDetails" [formGroup]="frmLoginDetails">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label>{{"User Name" | toL10}}</label>
+                        <input type="text" [(ngModel)]="this.userName"  class="form-control checking-field" formControlName="txtUserName" placeholder="User Name" required  
+                               [ngClass]="{'has-error':frmLoginDetails.get('txtUserName').touched && 
+                               frmLoginDetails.get('txtUserName').hasError('required'), 
+                               'has-success' : frmLoginDetails.get('txtUserName').touched && 
+                               !frmLoginDetails.get('txtUserName').hasError('required')}"/>
+                        <span class="help-block text-danger" *ngIf="frmLoginDetails.get('txtUserName').touched &&
+                              frmLoginDetails.get('txtUserName').hasError('required')">{{"User Name is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label>{{"Password"|toL10}}</label>
+                        <input type="password" [(ngModel)]="this.password" formControlName="txtPassword" class="form-control checking-field" placeholder="*********" required 
+                               [ngClass]="{'has-error':frmLoginDetails.get('txtPassword').touched && 
+                               frmLoginDetails.get('txtPassword').hasError('required'), 
+                               'has-success' : frmLoginDetails.get('txtPassword').touched && 
+                               !frmLoginDetails.get('txtPassword').hasError('required')}"/>
+                        <span class="help-block text-danger" *ngIf="frmLoginDetails.get('txtPassword').touched &&
+                              frmLoginDetails.get('txtPassword').hasError('required')">{{"Please enter password"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-lg btn-primary pointer" type="button" (click)="logIn()">{{"Submit"|toL10}}</button>
+            </div>
+        </form>
+    </div>

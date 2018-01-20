@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xDriver Photo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Manage-Drivers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Add-driver_visual" transform="translate(-455.000000, -195.000000)">
+            <g id="Driver-Photo" transform="translate(455.000000, 195.000000)">
+                <circle id="Oval" fill="#EDEFF5" cx="50" cy="50" r="50"></circle>
+                <g id="Page-1" transform="translate(28.000000, 28.000000)" stroke="#B2B4BB" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5.4203,25 L12.6223,25" id="Stroke-3"></path>
+                    <path d="M18.2699,3 L25.4719,3" id="Stroke-5"></path>
+                    <path d="M43.7416,21.8708 C43.7416,33.9498 33.9496,43.7418 21.8706,43.7418 C9.7926,43.7418 0.0006,33.9498 0.0006,21.8708 C0.0006,13.4158 4.7976,6.0818 11.8186,2.4418 C14.8286,0.8818 18.2466,-0.0002 21.8706,-0.0002 C33.9496,-0.0002 43.7416,9.7918 43.7416,21.8708 Z" id="Stroke-7"></path>
+                    <polyline id="Stroke-9" points="17.7299 12.9543 19.4589 18.8363 19.4589 20.1643 14.9309 41.8393"></polyline>
+                    <polyline id="Stroke-11" points="25.9623 12.9543 24.2763 18.8363 24.2763 20.1643 28.8113 41.8393"></polyline>
+                    <path d="M24.2768,19 L19.4648,19" id="Stroke-13"></path>
+                    <polyline id="Stroke-15" points="8.5463 4.5285 13.7573 15.5625 21.8703 9.9655 11.1543 2.8025"></polyline>
+                    <polyline id="Stroke-17" points="35.1957 4.5285 29.9837 15.5625 21.8707 9.9655 32.5867 2.8025"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

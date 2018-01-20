@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xMessage</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Message" stroke="#303133">
+            <path d="M10.0005946,1 C14.9635282,1 19,4.98058885 19,9.87337155 C19,10.9895779 18.795441,12.0788171 18.3827552,13.0918447 C18.0235877,14.005211 17.5086224,14.8423658 16.8402379,15.6021365 C16.7890981,15.6795206 16.7641229,15.7791819 16.7890981,15.8565659 L18.1520317,19 L13.2402379,18.1640177 L13.1890981,18.1640177 C13.1629336,18.1640177 13.1379584,18.1640177 13.1117939,18.1886399 C12.109217,18.5685253 11.0543112,18.7467431 10.0005946,18.7467431 C5.03766105,18.7467431 1,14.7661542 1,9.87337155 C1,4.98058885 5.03766105,1 10.0005946,1 Z" id="Stroke-1"></path>
+            <path d="M7,7 L13,7" id="Stroke-3"></path>
+            <path d="M7,10 L13,10" id="Stroke-5"></path>
+            <path d="M7,13 L13,13" id="Stroke-7"></path>
+        </g>
+    </g>
+</svg>

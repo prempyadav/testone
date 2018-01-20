@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xcolumn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44" height="44" rx="4"></rect>
+    </defs>
+    <g id="Bookings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bookings_Visual" transform="translate(-1816.000000, -100.000000)">
+            <g id="column" transform="translate(1816.000000, 100.000000)">
+                <g id="Input">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#CED1D9" stroke-width="1" x="0.5" y="0.5" width="43" height="43" rx="4"></rect>
+                </g>
+                <g id="Page-1" transform="translate(11.000000, 12.000000)" stroke="#5C5D61" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5675,9.974 C21.5675,9.974 22.0385,9.498 21.0945,8.555 C20.1505,7.611 19.6805,8.081 19.6805,8.081 L11.5535,16.243 L10.9055,18.823 L13.4405,18.132 L21.5675,9.974 Z" id="Stroke-1"></path>
+                    <path d="M18.4513,9.3148 L20.3883,11.1568" id="Stroke-3"></path>
+                    <path d="M12.0499,15.7162 L13.9869,17.5582" id="Stroke-5"></path>
+                    <polygon id="Stroke-7" points="21.6852 13.097 21.6852 19.585 0.6002 19.585 0.6002 0.5 21.6852 0.5 21.6852 8.934"></polygon>
+                    <path d="M0.5997,3.2464 L21.2107,3.2464" id="Stroke-9"></path>
+                    <path d="M10.9054,3.2464 L10.9054,19.5854" id="Stroke-11"></path>
+                    <path d="M0.5001,11.3656 L16.2951,11.3656" id="Stroke-13"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

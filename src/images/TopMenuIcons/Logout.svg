@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xLogout</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logout" stroke="#303133">
+            <path d="M4.81688889,5.10042172 C3.68833333,6.36399578 3,8.04190828 3,9.88350026 C3,13.8133896 6.13444444,17 10,17 C13.8663333,17 17,13.8133896 17,9.88350026 C17,7.99209278 16.2751111,6.27385345 15.0921111,5" id="Stroke-1"></path>
+            <path d="M10,3 L10,10" id="Stroke-3"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,52 @@
+﻿.TC_topMenu {
+    height: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #ced1d9;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    z-index: 99;
+    background-color: #FFF;
+    right: 0;
+}
+
+.TC_topMenuLeft {
+    float: left;
+    padding: 10px 0 10px 15px;
+}
+
+.TC_topMenuRight {
+    float: right;
+}
+
+    .TC_topMenuRight .TC_userName {
+        padding-top: 15px;
+        font-weight: 500;
+        color: #303133;
+        display: inline-block;
+        padding-right: 10px;
+    }
+
+    .TC_topMenuRight ul {
+        margin: 0;
+        padding: 0;
+        float: right;
+        vertical-align: middle;
+    }
+
+        .TC_topMenuRight ul li {
+            vertical-align: middle;
+            padding: 15px;
+            cursor: pointer;
+            border-right: 1px solid #ced1d9;
+            float: left;
+            display: inline-block;
+        }
+
+            .TC_topMenuRight ul li:last-child {
+                border-right: 0;
+            }
+
+            .TC_topMenuRight ul li:hover {
+                background-color: #EDEFF5;
+            }

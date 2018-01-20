@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="16px" viewBox="0 0 27 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Info</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Text-box" transform="translate(-262.000000, -17.000000)">
+            <g id="Info" transform="translate(262.000000, 0.000000)">
+                <path d="M0,0 L34,0 L34,0 C36.209139,-4.05812251e-16 38,1.790861 38,4 L38,46 L38,46 C38,48.209139 36.209139,50 34,50 L0,50 L0,0 Z" id="Input"></path>
+                <g id="icon" stroke-width="1" fill-rule="evenodd" transform="translate(11.000000, 17.000000)">
+                    <path d="M15.5,8 C15.5,3.85833565 12.1420509,0.5 8,0.5 C3.85880904,0.5 0.5,3.85880904 0.5,8 C0.5,12.1420509 3.85833565,15.5 8,15.5 C12.1425243,15.5 15.5,12.1425243 15.5,8 Z" id="Stroke-1" stroke="#B2B4BB"></path>
+                    <polyline id="Stroke-3" stroke="#B2B4BB" points="6.49951172 7 8 7 8 10.7122222"></polyline>
+                    <path d="M10,11 L6,11" id="Stroke-5" stroke="#B2B4BB"></path>
+                    <path d="M7.92555556,4 C8.45555556,4 8.83888889,4.41 8.83888889,4.93111111 C8.83888889,5.45333333 8.45555556,5.83888889 7.91333333,5.83888889 C7.36111111,5.83888889 7,5.45333333 7,4.93111111 C7,4.41 7.36111111,4 7.92555556,4" id="Fill-7" fill="#B2B4BB"></path>
+                </g>
+                <rect id="separator" fill="#CED1D9" fill-rule="evenodd" x="0" y="17" width="1" height="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

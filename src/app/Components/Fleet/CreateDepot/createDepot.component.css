@@ -1,0 +1,18 @@
+.TC_createDepot {
+    width: 480px;
+    margin: auto;
+    text-align: center;
+}
+
+.TC_fleetInfoGraph label,
+.TC_depotInfoGraph label {
+    font-weight: 600;
+    display: block;
+    color: #303133;
+    font-size: 20px;
+    padding: 15px 0;
+}
+
+.TC_pathArrow {
+    padding: 15px 0;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="9px" viewBox="0 0 15 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xclose</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Title-Bar" transform="translate(-668.000000, -26.000000)" stroke-width="2" stroke="#128EC2">
+            <g id="close" transform="translate(650.000000, 0.000000)">
+                <polyline id="Page-1" transform="translate(25.357143, 30.857143) scale(1, -1) translate(-25.357143, -30.857143) " points="31.8571429 27.8571429 25.3571429 33.8571429 18.8571429 27.8571429"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

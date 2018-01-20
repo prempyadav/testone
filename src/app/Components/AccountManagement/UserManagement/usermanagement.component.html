@@ -1,0 +1,186 @@
+<div *ngIf="this.errorMessage!=''" class="alert alert-danger" role="alert">
+    {{ this.errorMessage|toL10 }}
+</div>
+<!--<div class="AM-formbody">
+    <div class="TC_info"><i></i> {{Information text goes here|toL10}}</div>
+</div>-->
+<div class="AM-formbody Users_gridtable" [ngClass]="{'frmControlsDisabled':this.isForReview}">
+    <h3 class="h3-header">{{"Users" |toL10}} </h3>
+    <div class="TC_actions topActions">
+        <button *ngIf="!this.isForReview" class="pointer actBtn btn-TCDefault" type="button" (click)="addUserDetails()">{{"Add New User" |toL10}}</button>
+    </div>
+    <table>
+        <tr>
+            <th>{{"NAME" |toL10}}</th>
+            <th>{{"JOB TITLE" |toL10}}</th>
+            <th>{{"ROLE" |toL10}}</th>
+            <th>{{"PHONE" |toL10}}</th>
+            <th>{{"USERNAME" |toL10}}</th>
+            <th>{{"PASSWORD" |toL10}}</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let user of userDetailList">
+            <td>{{user.ClientUserData.FirstName}} {{user.ClientUserData.LastName}}</td>
+            <td>{{user.ContactDetailsData.JobTitle}}</td>
+            <td>{{getRoleText(user.UserData.Role)}}</td>
+            <td>{{user.ContactDetailsData.LandlineNumber}}</td>
+            <td>{{user.UserData.Email}}</td>
+            <td>***********</td>
+            <td *ngIf="!this.isForReview">
+                <a *ngIf="!this.isSuperUser(user.UserData.Role)" class="pointer"
+                   (click)="editUserDetails(user.ClientUserData.ContactDetailId)"><img src="/images/edit.png" /></a>
+                <a *ngIf="!this.isSuperUser(user.UserData.Role)" class="pointer"
+                   (click)="deleteUserDetails(user.ClientUserData.ContactDetailId)"><img src="/images/Delete.svg" onerror="this.src='/images/Delete.png'" /></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="TC_actions text-right" [ngClass]="{'frmControlsDisabled':this.editMode}" *ngIf="!this.isForReview">
+    <div class="innerContainer">
+        <a class="aLink" [routerLink]="['/home']">Complete Later</a>
+        <button class="actBtn btn-cancel pointer" type="button">{{"CANCEL"|toL10}}</button>
+        <button class="actBtn btn-procced pointer" type="button" (click)="setUser()">{{"SAVE & CONTINUE"|toL10}}</button>
+    </div>
+</div>
+
+<div class="modal fade" id="add-modal" style="z-index:999999" name="add-model" tabindex="-1" role="dialog" aria-labelledby="modal-primary-label">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <span class="close" (click)="hideadd()"><em>X</em></span>
+            <form class="form" name="frmUserManagement">
+                <div *ngIf="this.errorMessage!=''" class="alert alert-danger" role="alert">
+                    {{ this.errorMessage|toL10 }}
+                </div>
+                <div class="AM-popup-formbody AM-formbody">
+                    <h3 class="h3-header">
+                        {{ isAddUser==true ? "Add New User" : "Edit User" |toL10}}
+                    </h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtFirstName').touched && frmUserManagement.get('txtFirstName').hasError('required'), 'has-success' : frmUserManagement.get('txtFirstName').touched && !frmUserManagement.get('txtFirstName').hasError('required')}">
+                                <label>{{"First Name" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ClientUserData.FirstName" formControlName="txtFirstName" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtFirstName').touched && frmUserManagement.get('txtFirstName').hasError('required')">{{"First Name is required" |toL10}}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtLastName').touched && frmUserManagement.get('txtLastName').hasError('required'), 'has-success' : frmUserManagement.get('txtLastName').touched && !frmUserManagement.get('txtLastName').hasError('required')}">
+                                <label>{{"Last Name" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ClientUserData.LastName" formControlName="txtLastName" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtLastName').touched && frmUserManagement.get('txtLastName').hasError('required')">{{"Last Name is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('ddlTitle').touched && frmUserManagement.get('ddlTitle').hasError('required'), 'has-success' : frmUserManagement.get('ddlTitle').touched && !frmUserManagement.get('ddlTitle').hasError('required')}">
+                                <label>{{"Title" |toL10}}</label>
+                                <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                        [(ngModel)]="this.userDetail.ContactDetailsData.Title" formControlName="ddlTitle" required>
+                                    <option></option>
+                                    <option *ngFor="let item of this.titleData" value="{{item.Id}}">{{item.Text}}</option>
+
+                                </select>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('ddlTitle').touched && frmUserManagement.get('ddlTitle').hasError('required')">{{"Title is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtJobTitle').touched && frmUserManagement.get('txtJobTitle').hasError('required'), 'has-success' : frmUserManagement.get('txtJobTitle').touched && !frmUserManagement.get('txtJobTitle').hasError('required')}">
+                                <label>{{"Job Title" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ContactDetailsData.JobTitle" formControlName="txtJobTitle" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtJobTitle').touched && frmUserManagement.get('txtJobTitle').hasError('required')">{{"Job Title is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtDepartment').touched && frmUserManagement.get('txtDepartment').hasError('required'), 'has-success' : frmUserManagement.get('txtDepartment').touched && !frmUserManagement.get('txtDepartment').hasError('required')}">
+                                <label>{{"Department" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ContactDetailsData.Department" formControlName="txtDepartment" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtDepartment').touched && frmUserManagement.get('txtDepartment').hasError('required')">{{"Department is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtTelephoneNumber').touched && frmUserManagement.get('txtTelephoneNumber').hasError('required'), 'has-success' : frmUserManagement.get('txtTelephoneNumber').touched && !frmUserManagement.get('txtTelephoneNumber').hasError('required')}">
+                                <label>{{"Telephone No" |toL10}}</label>
+                                <input type="text" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ContactDetailsData.LandlineNumber" formControlName="txtTelephoneNumber" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtTelephoneNumber').touched && frmUserManagement.get('txtTelephoneNumber').hasError('required')">{{"Telephone Number is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtEmergencyMobileNumber').touched && frmUserManagement.get('txtEmergencyMobileNumber').hasError('required'), 'has-success' : frmUserManagement.get('txtEmergencyMobileNumber').touched && !frmUserManagement.get('txtEmergencyMobileNumber').hasError('required')}">
+                                <label>{{"Emergency Mobile No" |toL10}}</label>
+                                <input type="text" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.ContactDetailsData.EmergencyMobileNumber" formControlName="txtEmergencyMobileNumber" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtEmergencyMobileNumber').touched && frmUserManagement.get('txtEmergencyMobileNumber').hasError('required')">{{"Emergency Mobile Number is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="AM-formbody AM-popup-formbody">
+                    <h3 class="h3-header">{{"User Login Details" |toL10}}</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtEmail').touched && frmUserManagement.get('txtEmail').hasError('required'), 'has-success' : frmUserManagement.get('txtEmail').touched && !frmUserManagement.get('txtEmail').hasError('required')}">
+                                <label>{{"E-mail" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.UserData.Email" formControlName="txtEmail" (input)="doesEmailExists()" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtEmail').touched && frmUserManagement.get('txtEmail').hasError('required')">{{"Email is required" |toL10}}</span>
+                                <span *ngIf="this.emailNotAvialable" class="emailAlreadyExist text-danger"><i></i> This email is not available</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtConfirmEmail').touched && frmUserManagement.get('txtConfirmEmail').hasError('required'), 'has-success' : frmUserManagement.get('txtConfirmEmail').touched && !frmUserManagement.get('txtConfirmEmail').hasError('required')}">
+                                <label>{{"Confirm E-mail" |toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.UserData.ConfirmEmail" formControlName="txtConfirmEmail" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtConfirmEmail').touched && frmUserManagement.get('txtConfirmEmail').hasError('required')">{{"Confirm Email is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtPassword').touched && frmUserManagement.get('txtPassword').hasError('required'), 'has-success' : frmUserManagement.get('txtPassword').touched && !frmUserManagement.get('txtPassword').hasError('required')}">
+                                <label>{{"Password"|toL10}}</label>
+                                <input type="password" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.UserData.Password" formControlName="txtPassword" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtPassword').touched && frmUserManagement.get('txtPassword').hasError('required')">{{"Password is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group" [formGroup]="frmUserManagement" [ngClass]="{'has-error':frmUserManagement.get('txtConfirmPassword').touched && frmUserManagement.get('txtConfirmPassword').hasError('required'), 'has-success' : frmUserManagement.get('txtConfirmPassword').touched && !frmUserManagement.get('txtConfirmPassword').hasError('required')}">
+                                <label>{{"Confirm Password" |toL10}}</label>
+                                <input type="password" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.userDetail.UserData.ConfirmPassword" formControlName="txtConfirmPassword" required>
+                                <span class="help-block text-danger" *ngIf="frmUserManagement.get('txtConfirmPassword').touched && frmUserManagement.get('txtConfirmPassword').hasError('required')">{{"Confirm Password is required" |toL10}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="TC_actions text-right col-sm-pull-1" style="padding:20px;">
+                    <button class="actBtn btn-TCDefault pointer" type="submit" (click)="saveUser()">{{isAddUser==true? "Add User": "Edit User" |toL10}}</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,190 @@
+<form class="form" name="frmPaymentdetails" [ngClass]="{'frmControlsDisabled':this.isForReview}">
+    <div *ngIf="this.errorMessage!=''" class="alert alert-danger" role="alert">
+        {{ this.errorMessage|toL10 }}
+    </div>
+
+    <div class="AM-formbody">
+        <div class="TC_info" *ngIf="!this.isForReview"><i></i> {{"Please enter your bank details to receive payments from TripCenter.NET"|toL10}} </div>
+        <h3 class="h3-header">{{"Bank Account Details" |toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':PageDivs[0],'fa-angle-down':!PageDivs[0]}" (click)="showhide(0)"></i></h3>
+
+        <div id="dvbankaccountdetails" [hidden]="!PageDivs[0]">
+
+            <div class="AM-item Account_dtls">
+                <div class="currency-dtls">
+                    <div>
+                        <h4>
+                            {{this.currencyName|toL10}}
+                        </h4>
+                    </div>
+                    <span>
+                        <b>{{"Account Currency:"|toL10}}</b>
+                        {{"This is the currency for your account. If you wish to change it, Please contact TripCenter Customer Care Team."|toL10}}
+                    </span>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtBeneficiaryName').touched && frmPaymentdetails.get('txtBeneficiaryName').hasError('required'), 'has-success' : frmPaymentdetails.get('txtBeneficiaryName').touched && !frmPaymentdetails.get('txtBeneficiaryName').hasError('required')}">
+                            <label>{{"Beneficiary Name"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.AccountName" formControlName="txtBeneficiaryName" required />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtBeneficiaryName').touched && frmPaymentdetails.get('txtBeneficiaryName').hasError('required')">{{"Beneficiary Name is required"|toL10}}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtBankName').touched && frmPaymentdetails.get('txtBankName').hasError('required'), 'has-success' : frmPaymentdetails.get('txtBankName').touched && !frmPaymentdetails.get('txtBankName').hasError('required')}">
+                            <label>{{"Bank Name"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.BankName" formControlName="txtBankName" name="bankName" required />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtBankName').touched && frmPaymentdetails.get('txtBankName').hasError('required')">{{"Bank Name is required"|toL10}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtBankBranchAddress1').touched && frmPaymentdetails.get('txtBankBranchAddress1').hasError('required'), 'has-success' : frmPaymentdetails.get('txtBankBranchAddress1').touched && !frmPaymentdetails.get('txtBankBranchAddress1').hasError('required')}">
+                            <label>{{"Bank Branch Address Line 1"|toL10}} </label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.BranchAddressLine1" formControlName="txtBankBranchAddress1" name="addressLine1" required />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtBankBranchAddress1').touched && frmPaymentdetails.get('txtBankBranchAddress1').hasError('txtBankBranchAddress1')">{{"Bank Branch Address Line 1 is required"|toL10 }}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails">
+                            <label>{{"Bank Branch Address Line 2 (Optional)"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.BranchAddressLine2" formControlName="txtBankBranchAddress2" name="addressLine2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('ddlCountry').touched && frmPaymentdetails.get('ddlCountry').hasError('required'), 'has-success' : frmPaymentdetails.get('ddlCountry').touched && !frmPaymentdetails.get('ddlCountry').hasError('required')}">
+                            <label>{{"Country"|toL10}}  </label>
+                            <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')" [(ngModel)]="this.paymentSettings.BranchCountry" (change)="onCountrySelect($event.target.value)" formControlName="ddlCountry" name="country" required>
+                                <option value="">Select</option>
+                                <option *ngFor="let country of this.countryData" value="{{country.Id}}">{{country.Name}}</option>
+                            </select>
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('ddlCountry').touched && frmPaymentdetails.get('ddlCountry').hasError('required')">{{"Country is required"|toL10}}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('ddlProvince').touched && frmPaymentdetails.get('ddlProvince').hasError('required'), 'has-success' : frmPaymentdetails.get('ddlProvince').touched && !frmPaymentdetails.get('ddlProvince').hasError('required')}">
+                            <label>{{"State / Province"|toL10}} </label>
+                            <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                    [(ngModel)]="this.paymentSettings.BranchProvince" (change)="onProvinceSelect($event.target.value)" formControlName="ddlProvince" name="province" required>
+                                <option value="">Select</option>
+                                <option *ngFor="let state of this.stateData" value="{{state.Code}}">{{state.Name}}</option>
+                            </select>
+
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('ddlProvince').touched && frmPaymentdetails.get('ddlProvince').hasError('required')">{{"State / Province is required"|toL10}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('ddlCity').touched && frmPaymentdetails.get('ddlCity').hasError('required'), 'has-success' : frmPaymentdetails.get('ddlCity').touched && !frmPaymentdetails.get('ddlCity').hasError('required')}">
+                            <label>{{"Town / City"|toL10}}</label>
+                            <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                    [(ngModel)]="this.paymentSettings.BranchCity" name="city" formControlName="ddlCity" required>
+                                <option value="">Select</option>
+                                <option *ngFor="let city of this.cityData" value="{{city.Id}}">{{city.Name}}</option>
+                            </select>
+
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('ddlCity').touched && frmPaymentdetails.get('ddlCity').hasError('required')">{{"Town / City is required"|toL10}}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtZipCode').touched && frmPaymentdetails.get('txtZipCode').hasError('required'), 'has-success' : frmPaymentdetails.get('txtZipCode').touched && !frmPaymentdetails.get('txtZipCode').hasError('required')}">
+                            <div class="form-group">
+                                <label>{{"Post / Zip Code"|toL10}}</label>
+                                <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                       [(ngModel)]="this.paymentSettings.BranchPostcode" formControlName="txtZipCode" required name="postCode" />
+                                <span class="text-danger" *ngIf="frmPaymentdetails.get('txtZipCode').touched && frmPaymentdetails.get('txtZipCode').hasError('required')">{{"Post / Zip Code is required"|toL10}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails"
+                             [ngClass]="{'has-error':frmPaymentdetails.get('txtAccountNo').touched
+                             && frmPaymentdetails.get('txtAccountNo').hasError('required'),
+                             'has-success' : frmPaymentdetails.get('txtAccountNo').touched
+                             && !frmPaymentdetails.get('txtAccountNo').hasError('required')}">
+                            <label>{{"Account No" |toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.AccountNumber" formControlName="txtAccountNo" name="accountNumber" required />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtAccountNo').touched && frmPaymentdetails.get('txtAccountNo').hasError('required')">{{"Account No is required"|toL10}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtBranchShortCode').touched && frmPaymentdetails.get('txtBranchShortCode').hasError('required'), 'has-success' : frmPaymentdetails.get('txtBranchShortCode').touched && !frmPaymentdetails.get('txtBranchShortCode').hasError('required')}">
+                            <label>{{"Branch Sort Code"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.SortCode" formControlName="txtBranchShortCode" name="branchSortCode" required />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtBranchShortCode').touched && frmPaymentdetails.get('txtBranchShortCode').hasError('required')">{{"Branch Sort Code is required"|toL10}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtSwift').touched && frmPaymentdetails.get('txtSwift').hasError('required'), 'has-success' : frmPaymentdetails.get('txtSwift').touched && !frmPaymentdetails.get('txtSwift').hasError('required')}">
+                            <label>{{"Swift / BIC Code"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.SwiftOrBICCode" formControlName="txtSwift" name="swiftCode" />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtSwift').touched && frmPaymentdetails.get('txtSwift').hasError('required')">{{"Swift / BIC Code is required"|toL10}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtIBANNo').touched && frmPaymentdetails.get('txtIBANNo').hasError('required'), 'has-success' : frmPaymentdetails.get('txtIBANNo').touched && !frmPaymentdetails.get('txtIBANNo').hasError('required')}">
+                            <label>{{"IBAN No"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.IBANNumber" formControlName="txtIBANNo" name="IBANNumber" />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtIBANNo').touched && frmPaymentdetails.get('txtIBANNo').hasError('required')">{{"IBAN No is required"|toL10}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtRoutingNumber').touched && frmPaymentdetails.get('txtRoutingNumber').hasError('required'), 'has-success' : frmPaymentdetails.get('txtRoutingNumber').touched && !frmPaymentdetails.get('txtRoutingNumber').hasError('required')}">
+                            <label>{{"Routing Number (ABA)"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.RoutingNumberABA" formControlName="txtRoutingNumber" name="routingNumber" />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtRoutingNumber').touched && frmPaymentdetails.get('txtRoutingNumber').hasError('required')">{{"Routing Number (ABA) is required"|toL10}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtIntermediateBank').touched && frmPaymentdetails.get('txtIntermediateBank').hasError('required'), 'has-success' : frmPaymentdetails.get('txtIntermediateBank').touched && !frmPaymentdetails.get('txtIntermediateBank').hasError('required')}">
+                            <label>{{"Intermediary Bank"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.IntermediaryBank" formControlName="txtIntermediateBank" name="intermediaryBank" />
+                            <span class="text-danger" *ngIf="frmPaymentdetails.get('txtIntermediateBank').touched && frmPaymentdetails.get('txtIntermediateBank').hasError('required')">{{"Intermediary Bank is required"|toL10}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group" [formGroup]="frmPaymentdetails" [ngClass]="{'has-error':frmPaymentdetails.get('txtOtherInfo').touched && frmPaymentdetails.get('txtOtherInfo').hasError('required'), 'has-success' : frmPaymentdetails.get('txtOtherInfo').touched && !frmPaymentdetails.get('txtOtherInfo').hasError('required')}">
+                            <label>{{"Other Information"|toL10}}</label>
+                            <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                   [(ngModel)]="this.paymentSettings.OtherInfo" formControlName="txtOtherInfo" name="txtOtherInfo" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="TC_actions text-right" [ngClass]="{'frmControlsDisabled':this.editMode}" *ngIf="!this.isForReview">
+        <div class="innerContainer">
+            <a class="aLink" [routerLink]="['/home']">Complete Later</a>
+            <button class="actBtn btn-cancel pointer" type="button">{{"CANCEL"|toL10}}</button>
+            <button class="actBtn btn-procced pointer" type="button" (click)="setPaymentInformation()">{{"SAVE & CONTINUE"|toL10}}</button>
+        </div>
+    </div>
+</form>

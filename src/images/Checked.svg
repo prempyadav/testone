@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xChecked</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="30" height="30" rx="4"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Checked">
+            <g id="Checkbox_non-selected">
+                <use fill="#128EC2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#128EC2" stroke-width="1" x="0.5" y="0.5" width="29" height="29" rx="4"></rect>
+            </g>
+            <polyline id="Page-1-Copy-7" stroke="#FFFFFF" stroke-width="2.5" points="20.9394531 11 13.4082031 18.3652344 9 14"></polyline>
+        </g>
+    </g>
+</svg>

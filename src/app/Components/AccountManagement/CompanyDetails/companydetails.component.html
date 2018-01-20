@@ -1,0 +1,340 @@
+<form class="form" name="frmCompanyDetails" [ngClass]="{'frmControlsDisabled':this.isForReview}">
+    <div *ngIf="this.errorMessage!=''" class="alert alert-danger" role="alert">
+        {{ this.errorMessage|toL10 }}
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Company Information"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':PageDivs[0],'fa-angle-down':!PageDivs[0]}" (click)="showhide(0)"></i></h3>
+        <div id="dvcompanyinfo" [hidden]="!PageDivs[0]">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails"
+                         [ngClass]="{'has-error':frmCompanyDetails.get('txtCompanyName').touched && frmCompanyDetails.get('txtCompanyName').hasError('required'),
+                         'has-success' : frmCompanyDetails.get('txtCompanyName').touched && !frmCompanyDetails.get('txtCompanyName').hasError('required')}">
+                        <label class="control-label">{{"Company Name"|toL10}}</label>
+                        <em>i</em>
+                        <input type="text" class="form-control checking-field" maxlength="200" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ClientCompany.Name" formControlName="txtCompanyName" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtCompanyName').touched && frmCompanyDetails.get('txtCompanyName').hasError('required')">{{"Company Name is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtLegalCompanyName').touched && frmCompanyDetails.get('txtLegalCompanyName').hasError('required'), 'has-success' : frmCompanyDetails.get('txtLegalCompanyName').touched && !frmCompanyDetails.get('txtLegalCompanyName').hasError('required')}">
+                        <label>{{"Legal Company Name"|toL10}}</label><em>i</em>
+                        <input type="text" class="form-control checking-field" maxlength="200" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ClientCompany.LegalCompanyName" formControlName="txtLegalCompanyName" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtLegalCompanyName').touched && frmCompanyDetails.get('txtLegalCompanyName').hasError('required')">{{"Legal Company Name is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlCompanyCategory').touched && frmCompanyDetails.get('ddlCompanyCategory').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlCompanyCategory').touched && !frmCompanyDetails.get('ddlCompanyCategory').hasError('required')}">
+                        <label>{{"Company Category"|toL10}}</label><em>i</em>
+                        <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ClientCompany.CompanyCategory" formControlName="ddlCompanyCategory" required>
+                            <option></option>
+                            <option *ngFor="let company of this.companyCategoryData" value="{{company.Id}}">{{company.Text}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlCompanyCategory').touched && frmCompanyDetails.get('ddlCompanyCategory').hasError('required')">{{"Company Category is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlCountry').touched && frmCompanyDetails.get('ddlCountry').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlCountry').touched && !frmCompanyDetails.get('ddlCountry').hasError('required')}">
+                        <label>{{"Country"|toL10}}</label>
+                        <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ContactDetails.Country" (change)="onCountrySelect($event.target.value)" formControlName="ddlCountry" required>
+                            <option></option>
+                            <option *ngFor="let country of this.countryData" value="{{country.Id}}">{{country.Name}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlCountry').touched && frmCompanyDetails.get('ddlCountry').hasError('required')">{{"Country is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlProvince').touched && frmCompanyDetails.get('ddlProvince').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlProvince').touched && !frmCompanyDetails.get('ddlProvince').hasError('required')}">
+                        <label>{{"State"|toL10}} / {{"Province"|toL10}}</label>
+                        <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ContactDetails.Province" (change)="onProvinceSelect($event.target.value)" formControlName="ddlProvince" required>
+                            <option>Select</option>
+                            <option *ngFor="let state of this.stateData" value="{{state.Code}}">{{state.Name}}</option>
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlProvince').touched && frmCompanyDetails.get('ddlProvince').hasError('required')">{{"State/Province is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlCity').touched && frmCompanyDetails.get('ddlCity').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlCity').touched && !frmCompanyDetails.get('ddlCity').hasError('required')}">
+                        <label>{{"City"|toL10}}</label>
+                        <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ContactDetails.City" formControlName="ddlCity" required>
+                            <option></option>
+                            <option *ngFor="let city of this.cityData" value="{{city.Id}}">{{city.Name}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlCity').touched && frmCompanyDetails.get('ddlCity').hasError('required')">{{"City is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtAddressLine1').touched &&
+                         frmCompanyDetails.get('txtAddressLine1').hasError('required'),
+                         'has-success' : frmCompanyDetails.get('txtAddressLine1').touched && !frmCompanyDetails.get('txtAddressLine1').hasError('required')}">
+                        <label>{{"Address Line 1"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.AddressLine1" formControlName="txtAddressLine1" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtAddressLine1').touched && frmCompanyDetails.get('txtAddressLine1').hasError('required')">{{"Address Line 1 is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails">
+                        <label>{{"Address Line 2"|toL10}} ({{"Optional"|toL10}})</label>
+                        <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.AddressLine2" formControlName="txtAddressLine2" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtPostCode').touched && frmCompanyDetails.get('txtPostCode').hasError('required'), 'has-success' : frmCompanyDetails.get('txtPostCode').touched && !frmCompanyDetails.get('txtPostCode').hasError('required')}">
+                        <label>{{"Postcode"|toL10}} / {{"Zipcode"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.Postcode" formControlName="txtPostCode" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtPostCode').touched && frmCompanyDetails.get('txtPostCode').hasError('required')">{{"Post Code is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtPhoneNumber').touched && (frmCompanyDetails.get('txtPhoneNumber').hasError('required') || frmCompanyDetails.get('txtPhoneNumber').hasError('invalidMobileNumber')), 'has-success' : frmCompanyDetails.get('txtPhoneNumber').touched && !frmCompanyDetails.get('txtPhoneNumber').hasError('required') &&  !frmCompanyDetails.get('txtPhoneNumber').hasError('invalidMobileNumber')}">
+                        <label>{{"Phone Number"|toL10}}</label><em>i</em>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.LandlineNumber" formControlName="txtPhoneNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtPhoneNumber').touched && frmCompanyDetails.get('txtPhoneNumber').hasError('required')">{{"Phone Number is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtPhoneNumber').touched && frmCompanyDetails.get('txtPhoneNumber').hasError('invalidMobileNumber')">{{"Phone Number is not valid"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtEMobileNumber').touched && (frmCompanyDetails.get('txtEMobileNumber').hasError('required') || frmCompanyDetails.get('txtEMobileNumber').hasError('invalidMobileNumber') ), 'has-success' : frmCompanyDetails.get('txtEMobileNumber').touched && !frmCompanyDetails.get('txtEMobileNumber').hasError('required') && !frmCompanyDetails.get('txtEMobileNumber').hasError('invalidMobileNumber')}">
+                        <label>{{"Emergency Mobile Number"|toL10}} ({{"TripCenter Use ONLY"|toL10}})</label><em>i</em>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.EmergencyMobileNumber" formControlName="txtEMobileNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtEMobileNumber').touched && frmCompanyDetails.get('txtEMobileNumber').hasError('required')">{{"Emergency Mobile Number is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtEMobileNumber').touched && frmCompanyDetails.get('txtEMobileNumber').hasError('invalidMobileNumber')">{{"Emergency Mobile Number is not valid"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtConfirmEMobileNumber').touched && (frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('required') || frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('invalidMobileNumber')), 'has-success' : frmCompanyDetails.get('txtConfirmEMobileNumber').touched && !frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('required') && !frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('invalidMobileNumber')}">
+                        <label>{{"Confirm Emergency Mobile Number"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.ConfirmEmergencyMobileNumber" formControlName="txtConfirmEMobileNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtConfirmEMobileNumber').touched && frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('required')">{{"Confirm Emergency Mobile Number is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtConfirmEMobileNumber').touched && frmCompanyDetails.get('txtConfirmEMobileNumber').hasError('unmatchedMobile')">{{"Confirm Emergency Mobile Number is not matched"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtHelplineNumber').touched && (frmCompanyDetails.get('txtHelplineNumber').hasError('required') ||  frmCompanyDetails.get('txtHelplineNumber').hasError('invalidHelplineNumber') ), 'has-success' : frmCompanyDetails.get('txtHelplineNumber').touched && !frmCompanyDetails.get('txtHelplineNumber').hasError('required') && !frmCompanyDetails.get('txtHelplineNumber').hasError('invalidHelplineNumber')}">
+                        <label>{{"24/7 Customer Helpline Number"|toL10}}</label><em>i</em>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.HelplineNumber" formControlName="txtHelplineNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtHelplineNumber').touched && frmCompanyDetails.get('txtHelplineNumber').hasError('required')">{{"24/7 Customer Helpline Number is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtHelplineNumber').touched && frmCompanyDetails.get('txtHelplineNumber').hasError('invalidHelplineNumber')">{{"24/7 Customer Helpline Number is not valid"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails">
+                        <label>{{"Fax No"|toL10}} ({{"Optional"|toL10}})</label>
+                        <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.Fax" formControlName="txtFaxNumber" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails">
+                        <label>{{"Website"|toL10}} ({{"Optional"|toL10}})</label>
+                        <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.Website" formControlName="txtWebsite" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Administrator"|toL10}} ({{"Super User"|toL10}})<i id="ic2" class="fa " [ngClass]="{'fa-angle-up':PageDivs[1],'fa-angle-down':!PageDivs[1]}" (click)="showhide(1)"></i></h3>
+        <div id="dvadministrator" [hidden]="!PageDivs[1]">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group eleDisable" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtFirstName').touched && frmCompanyDetails.get('txtFirstName').hasError('required'), 'has-success' : frmCompanyDetails.get('txtFirstName').touched && !frmCompanyDetails.get('txtFirstName').hasError('required')}">
+                        <label>{{"First Name"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.AdminUser.FirstName" formControlName="txtFirstName" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtFirstName').touched && frmCompanyDetails.get('txtFirstName').hasError('required')">{{"First Name is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group eleDisable" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtLastName').touched && frmCompanyDetails.get('txtLastName').hasError('required'), 'has-success' : frmCompanyDetails.get('txtLastName').touched && !frmCompanyDetails.get('txtLastName').hasError('required')}">
+                        <label>{{"Last Name"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.AdminUser.LastName" formControlName="txtLastName" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtLastName').touched && frmCompanyDetails.get('txtLastName').hasError('required')">{{"Last Name is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group eleDisable" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlTitle').touched && frmCompanyDetails.get('ddlTitle').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlTitle').touched && !frmCompanyDetails.get('ddlTitle').hasError('required')}">
+                        <label>{{"Title" |toL10}}</label>
+                        <select class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ContactDetails.Title" formControlName="ddlTitle" >
+                            <option></option>
+                            <option *ngFor="let item of this.titleData" value="{{item.Id}}">{{item.Text}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlTitle').touched && frmCompanyDetails.get('ddlTitle').hasError('required')">{{"Title is required" |toL10}}</span>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group eleDisable" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtJobTitle').touched && frmCompanyDetails.get('txtJobTitle').hasError('required'), 'has-success' : frmCompanyDetails.get('txtJobTitle').touched && !frmCompanyDetails.get('txtJobTitle').hasError('required')}">
+                        <label>{{"Job Title"|toL10}} </label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.JobTitle" formControlName="txtJobTitle"  />
+                        <span class="help-block text-danger" *ngIf="frmCompanyDetails.get('txtJobTitle').touched && frmCompanyDetails.get('txtJobTitle').hasError('required')">{{"Job Title is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group eleDisable" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtEmail').touched && (frmCompanyDetails.get('txtEmail').hasError('required') || frmCompanyDetails.get('txtEmail').hasError('invalidEmail')), 'has-success' : frmCompanyDetails.get('txtEmail').touched && !frmCompanyDetails.get('txtEmail').hasError('required') && !frmCompanyDetails.get('txtEmail').hasError('invalidEmail')}">
+                        <label>{{"Email"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.Email" formControlName="txtEmail" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtEmail').touched && frmCompanyDetails.get('txtEmail').hasError('required')">{{"Email is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtEmail').touched && frmCompanyDetails.get('txtEmail').hasError('invalidEmail')">{{"Invalid email address"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hidden">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtConfirmEmail').touched && frmCompanyDetails.get('txtConfirmEmail').hasError('required'), 'has-success' : frmCompanyDetails.get('txtConfirmEmail').touched && !frmCompanyDetails.get('txtConfirmEmail').hasError('required')}">
+                        <label>{{"Confirm E-mail"|toL10}}</label>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.ConfirmEmail" formControlName="txtConfirmEmail" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtConfirmEmail').touched && frmCompanyDetails.get('txtConfirmEmail').hasError('required')">{{"Confirm Email is required"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtConfirmEmail').touched && frmCompanyDetails.get('txtConfirmEmail').hasError('invalidEmail')">{{"Invalid email address"|toL10}}</span>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtConfirmEmail').touched && frmCompanyDetails.get('txtConfirmEmail').hasError('unmatchedEmail')">{{"Confirm Email is not matched"|toL10}}</span>
+                    </div>
+                </div>
+            <!--</div>
+            <div class="row">-->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtMobileNumber').touched && frmCompanyDetails.get('txtMobileNumber').hasError('invalidMobileNumber'), 'has-success' : frmCompanyDetails.get('txtMobileNumber').touched && !frmCompanyDetails.get('txtMobileNumber').hasError('invalidMobileNumber')}">
+                        <label>{{"Mobile Number"|toL10}} ({{"Optional"|toL10}}) </label>
+                        <input type="text" maxlength="200" class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ContactDetails.MobileNumber" formControlName="txtMobileNumber" />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtMobileNumber').touched && frmCompanyDetails.get('txtMobileNumber').hasError('invalidMobileNumber')">{{"Mobile Number is not valid"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Additional Information"|toL10}}<i id="ic3" class="fa " [ngClass]="{'fa-angle-up':PageDivs[2],'fa-angle-down':!PageDivs[2]}" (click)="showhide(2)"></i></h3>
+        <div id="dvadditionalinformation" [hidden]="!PageDivs[2]">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlCurrency').touched && frmCompanyDetails.get('ddlCurrency').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlCurrency').touched && !frmCompanyDetails.get('ddlCurrency').hasError('required')}">
+                        <label>{{"Currency"|toL10}}</label><em>i</em>
+                        <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.CoachOperator.Currency" formControlName="ddlCurrency" required>
+                            <option></option>
+                            <option *ngFor="let currency of this.currencydata" value="{{currency.Id}}">{{currency.Name}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlCurrency').touched && frmCompanyDetails.get('ddlCurrency').hasError('required')">{{"Currency is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('ddlPreferredDistanceUnit').touched && frmCompanyDetails.get('ddlPreferredDistanceUnit').hasError('required'), 'has-success' : frmCompanyDetails.get('ddlPreferredDistanceUnit').touched && !frmCompanyDetails.get('ddlPreferredDistanceUnit').hasError('required')}">
+                        <label>{{"Preferred Distance Unit"|toL10}}</label><em>i</em>
+                        <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.CoachOperator.DistanceUnit" formControlName="ddlPreferredDistanceUnit" required>
+                            <option></option>
+                            <option *ngFor="let unit of this.distanceUnit" value="{{unit.Text}}">{{unit.Text}}</option>
+
+                        </select>
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('ddlPreferredDistanceUnit').touched && frmCompanyDetails.get('ddlPreferredDistanceUnit').hasError('required')">{{"Preferred Distance Unit is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtRegistrationNumber').touched && frmCompanyDetails.get('txtRegistrationNumber').hasError('required'), 'has-success' : frmCompanyDetails.get('txtRegistrationNumber').touched && !frmCompanyDetails.get('txtRegistrationNumber').hasError('required')}">
+                        <label>{{"Company Registration Number"|toL10}}</label><em>i</em>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ClientCompany.CompanyRegistrationNumber" formControlName="txtRegistrationNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtRegistrationNumber').touched && frmCompanyDetails.get('txtRegistrationNumber').hasError('required')">{{"Company Registration Number is required"|toL10}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails" [ngClass]="{'has-error':frmCompanyDetails.get('txtTaxNumber').touched && frmCompanyDetails.get('txtTaxNumber').hasError('required'), 'has-success' : frmCompanyDetails.get('txtTaxNumber').touched && !frmCompanyDetails.get('txtTaxNumber').hasError('required')}">
+                        <label>{{"Tax Number"|toL10}}</label><em>i</em>
+                        <input type="text" maxlength="200" class="form-control checking-field" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                               [(ngModel)]="this.companydetails.ClientCompany.TaxNumber" formControlName="txtTaxNumber" required />
+                        <span class="text-danger" *ngIf="frmCompanyDetails.get('txtTaxNumber').touched && frmCompanyDetails.get('txtTaxNumber').hasError('required')">{{"Tax Number is required"|toL10}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group" [formGroup]="frmCompanyDetails">
+                        <label>{{"How did you hear about TripCenter.Net"|toL10}}</label>
+                        <select class="form-control" (focus)="getElement($event, 'focus')" (blur)="getElement($event, 'blur')"
+                                [(ngModel)]="this.companydetails.ClientCompany.HearAboutUs" formControlName="ddlAboutUS">
+                            <option></option>
+                            <option *ngFor="let about of this.aboutUS" value="{{about.Id}}">{{about.Text}}</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Membership Information"|toL10}} <span>({{"Optional"|toL10}})<em>i</em></span><i id="ic4" class="fa " [ngClass]="{'fa-angle-up':PageDivs[3],'fa-angle-down':!PageDivs[3]}" (click)="showhide(3)"></i></h3>
+        <div id="dvmembershipinformation" [hidden]="!PageDivs[3]">
+            <div class="row Users_gridtable">
+                <table class="textAlignLeft">
+                    <tr>
+                        <td>Association Name</td>
+                        <td>Membership Number</td>
+                        <td *ngIf="!this.isForReview">Action</td>
+                    </tr>
+                    <tr *ngFor="let item of this.companydetails.Membership; let i = index">
+                        <td>
+                            <input type="text" maxlength="200" name="AssociationName{{i}}" [(ngModel)]="item.AssociationName" required />
+                        </td>
+                        <td>
+                            <input type="text" maxlength="200" name="MembershipNumber{{i}}" [(ngModel)]="item.MembershipNumber" required />
+                        </td>
+                        <td *ngIf="!this.isForReview">
+                            <a href="javascript:;" *ngIf="i == this.companydetails.Membership.length-1" (click)="addMembership()">Create</a>&nbsp; &nbsp; &nbsp;
+                            <a href="javascript:;" *ngIf="i != this.companydetails.Membership.length-1" (click)="deleteMembership(i)">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="TC_actions text-right" *ngIf="!this.isForReview">
+        <!--[disabled]="!frmCompanyDetails.valid" -->
+        <div class="innerContainer">
+            <button class="actBtn btn-cancel" [disabled]="!frmCompanyDetails.valid" type="button">{{"CANCEL"|toL10}}</button>
+            <button class="actBtn btn-procced pointer" type="button" (click)="setCompanyDetails()">{{"SAVE & CONTINUE"|toL10}}</button>
+        </div>
+    </div>
+</form>

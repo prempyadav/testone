@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xclock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Bookings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bookings_Visual" transform="translate(-1195.000000, -585.000000)" stroke="#5C5D61" stroke-width="1.5">
+            <g id="clock" transform="translate(1196.000000, 586.000000)">
+                <path d="M8.4998,0.5 C4.0838,0.5 0.4998,4.084 0.4998,8.5 C0.4998,12.916 4.0838,16.5 8.4998,16.5 C12.9158,16.5 16.4998,12.916 16.4998,8.5 C16.4998,4.084 12.9158,0.5 8.4998,0.5 Z" id="Stroke-1"></path>
+                <polyline id="Stroke-3" points="13.0061 8.2109 8.5241 8.2109 8.5001 3.8649"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

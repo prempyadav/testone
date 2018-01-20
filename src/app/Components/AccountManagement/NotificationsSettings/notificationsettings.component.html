@@ -1,0 +1,39 @@
+<form class="form" name="frmNotificationSettings" [ngClass]="{'frmControlsDisabled':this.isForReview}">
+    <div *ngIf="this.errorMessage!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ this.errorMessage |toL10}}
+    </div>
+    <div class="NotificationSettings_gridView AM-formbody">
+        <h4 style="padding:20px 0;">{{"Notifications Setting"|toL10}}</h4>
+        <div class="TC_actions topActions">
+            <button *ngIf="!this.isForReview" class="actBtn btn-cancel pointer" type="button" [hidden]="!editMode" (click)="cancel()">{{"CANCEL"|toL10}}</button>
+            <button *ngIf="!this.isForReview" class="actBtn btn-edit pointer" type="button" [hidden]="editMode" (click)="edit()">{{"EDIT SETTINGS"|toL10}}</button>
+            <button *ngIf="!this.isForReview" class="actBtn btn-TCDefault pointer" type="button" [hidden]="!editMode" (click)="save()">{{"SAVE"|toL10}}</button>
+        </div>
+        <div class="TC_info"><i></i> {{"Your notifications will be sent to the followings emails" |toL10}}</div>
+        <div class="NotificationSettings_gridViewTable Edit_NotificationSettings">
+            <div class="NotificationSettings_tablerows">
+                <span>{{"Description"|toL10}}</span>
+                <span>{{"Email"|toL10}}</span>
+            </div>
+            <div class="NotificationSettings_tablerows" *ngFor="let setting of this.notificationSettings">
+                <span> {{this.getDescription(setting.DescriptionId)}} </span>
+                <span [hidden]="editMode">{{setting.EmailId}} </span>
+                <span  [hidden]="!editMode">
+                    <select class="form-control"
+                            [(ngModel)]="setting.EmailId" name="ddlUsers_{{setting.DescriptionId}}">
+                        <option>{{sendtoNoOne}}</option>
+                        <option *ngFor="let user of this.notificationUserList" value="{{user.Email}}">{{user.Email}}</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="TC_actions text-right" [ngClass]="{'frmControlsDisabled':this.editMode}" *ngIf="!this.isForReview">
+        <div class="innerContainer">
+            <a class="aLink" [routerLink]="['/home']">Complete Later</a>
+            <button class="actBtn btn-cancel pointer" type="button">{{"CANCEL"|toL10}}</button>
+            <button class="actBtn btn-procced pointer" type="button" (click)="setNotificationSettings()">{{"SAVE & REVIEW"|toL10}}</button>
+        </div>
+    </div>
+</form>

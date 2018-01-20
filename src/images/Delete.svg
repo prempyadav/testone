@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xDelete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Delete" stroke="#E81E0C">
+            <path d="M16.4482,4.5248 L15.5982,17.2488 C15.5982,18.3968 14.6222,19.3498 13.4232,19.3498 L5.8762,19.3498 C4.6762,19.3498 3.7002,18.3968 3.7002,17.2248 L2.8502,4.5248" id="Stroke-1"></path>
+            <path d="M1,4.0766 L18.299,4.0766" id="Stroke-3"></path>
+            <path d="M9.6494,8.0766 L9.6494,15.7746" id="Stroke-5"></path>
+            <path d="M6.6748,8.0766 L7.0998,15.7746" id="Stroke-7"></path>
+            <path d="M12.624,8.0766 L12.199,15.7746" id="Stroke-9"></path>
+            <path d="M6.3857,3.6528 L6.3857,2.5008 C6.3857,1.9498 6.8357,1.5008 7.3857,1.5008 L11.9127,1.5008 C12.4627,1.5008 12.9127,1.9498 12.9127,2.5008 L12.9127,3.6528" id="Stroke-11"></path>
+        </g>
+    </g>
+</svg>

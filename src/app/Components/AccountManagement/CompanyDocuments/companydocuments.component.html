@@ -1,0 +1,91 @@
+<form class="form" name="frmCompanyDocuments" [ngClass]="{'frmControlsDisabled':this.isForReview}">
+    <div *ngIf="this.errorMessage!=''" class="alert alert-danger" role="alert">
+        {{ this.errorMessage|toL10 }}
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Comapany Category"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':PageDivs[0],'fa-angle-down':!PageDivs[0]}" (click)="showhide(0)"></i></h3>
+        <div id="dvcomapanytype" [hidden]="!PageDivs[0]">
+            <span class="typo_company frmControlsDisabled">
+                <select [(ngModel)]="this.companyCategoryId" [ngModelOptions]="{standalone: true}">
+                    <option></option>
+                    <option *ngFor="let company of this.companyCategoryData" value="{{company.Id}}">{{company.Text}}</option>
+                </select>
+            </span>
+        </div>
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Company Documents"|toL10}}<i id="ic2" class="fa " [ngClass]="{'fa-angle-up':PageDivs[1],'fa-angle-down':!PageDivs[1]}" (click)="showhide(1)"></i></h3>
+        <div id="dvcompanydocument" [hidden]="!PageDivs[1]">
+            <div class="AM-item">
+                <h4>{{"Trading Licence"|toL10}} / {{"Company Registration Certificate"|toL10}}<em>i</em></h4>
+                <tripcenterfileupload #certificate maxFiles="1" maxSize="2" fileExt="JPG, GIF, PNG"
+                                      (uploadStatus)="this.updateEntry($event)">
+                </tripcenterfileupload>
+                <div class="Expdateoption clearfix">
+                    <p>{{"Does your trading licence/company Registration Certificate have an expiry date"|toL10}}? </p>
+                    <input type="radio" name="isTradingLicenceExpiry" (change)="this.setHasExpiry(0,true)" [checked]="this.companydocuments[0].HasExpiryDate" /><label>{{"Yes"|toL10}}</label>
+                    <input type="radio" name="isTradingLicenceExpiry" (change)=this.setHasExpiry(0,false) [checked]="!this.companydocuments[0].HasExpiryDate" /><label>{{"No"|toL10}}</label>
+                </div>
+                <div class="Expdatecal" *ngIf="this.companydocuments[0].HasExpiryDate">
+                    <label>{{"Expiry Date"|toL10}}</label>
+                    <input type="text" placeholder="yyyy/mm/dd" name="tradingLicenceExpiryDate" class="form-control" [(ngModel)]="this.companydocuments[0].ExpiryDate" />
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </div>
+                <h4>{{"Vehicle Operator's Licence"|toL10}}<em>i</em></h4>
+                <tripcenterfileupload #license
+                                      maxFiles="1" maxSize="2" fileExt="JPG, GIF, PNG"
+                                      (uploadStatus)="this.updateEntry($event)">
+                </tripcenterfileupload>
+                <div class="Expdateoption clearfix">
+                    <p>{{"Does your trading licence/company Registration Certificate have an expiry date"|toL10}}? </p>
+                    <input type="radio" name="isVehicleOperatorLicenceExpiry" (change)="this.setHasExpiry(1,true)" [checked]="this.companydocuments[1].HasExpiryDate" /><label>Yes</label>
+                    <input type="radio" name="isVehicleOperatorLicenceExpiry" (change)="this.setHasExpiry(1,false)" [checked]="!this.companydocuments[1].HasExpiryDate" /><label>No</label>
+                </div>
+                <div class="Expdatecal" *ngIf="this.companydocuments[1].HasExpiryDate">
+                    <label>{{"Expiry Date"|toL10}} ({{"dd"|toL10}}/{{"yyyy"|toL10}})</label>
+                    <input type="text" placeholder="yyyy/mm/dd" name="vehicleOperatorLicenceExpiryDate" [(ngModel)]="this.companydocuments[1].ExpiryDate" class="form-control" /><i class="fa fa-calendar" aria-hidden="true"></i>
+                </div>
+                <h4>{{"Public & Product Liability Insurance"|toL10}}<em>i</em></h4>
+                <tripcenterfileupload #insurance maxFiles="1" maxSize="2" fileExt="JPG, GIF, PNG"
+                                      (uploadStatus)="this.updateEntry($event)">
+                </tripcenterfileupload>
+                <div class="Expdateoption clearfix">
+                    <p> {{"Does your trading licence/company Registration Certificate have an Expiry date"|toL10}}? </p>
+                    <input type="radio" name="isLiabilityInsuranceExpiry" (change)="this.setHasExpiry(2,true)" [checked]="this.companydocuments[2].HasExpiryDate" /><label>Yes</label>
+                    <input type="radio" name="isLiabilityInsuranceExpiry" (change)="this.setHasExpiry(2,false)" [checked]="this.companydocuments[2].HasExpiryDate" /><label>No</label>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6" *ngIf="this.companydocuments[2].HasExpiryDate">
+                        <div class="Expdatecal ExpDat">
+                            <label>{{"Expiry Date"|toL10}} ({{"dd"|toL10}}/{{"yyyy"|toL10}})</label>
+                            <input type="text" placeholder="yyyy/mm/dd" name="liabilityInsuranceExpiryDate" [(ngModel)]="this.companydocuments[2].ExpiryDate" class="form-control" /><i class="fa fa-calendar" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="Coverage_amount">
+                            <label>{{"Insurance Coverage Amount"|toL10}}</label>
+                            <span>$</span>
+                            <input type="text" name="insuranceCoverageAmount" class="form-control" [(ngModel)]="this.companydocuments[2].InsuranceAmount" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AM-formbody">
+        <h3 class="h3-header">{{"Company Logo"|toL10}} <span>({{"Optional"|toL10}})</span><i id="ic3" class="fa " [ngClass]="{'fa-angle-up':PageDivs[2],'fa-angle-down':!PageDivs[2]}" (click)="showhide(2)"></i></h3>
+        <div id="divCompanyLogo" [hidden]="!PageDivs[2]">
+            <div class="AM-item">
+                <tripcenterfileupload #logo maxFiles="1" maxSize="2" fileExt="JPG, GIF, PNG"
+                                      (uploadStatus)="this.updateEntry($event)">
+                </tripcenterfileupload>
+            </div>
+        </div>
+    </div>
+    <div class="TC_actions text-right" *ngIf="!this.isForReview">
+        <div class="innerContainer">
+            <button class="actBtn btn-cancel pointer" type="button">{{"CANCEL"|toL10}}</button>
+            <button class="actBtn btn-procced pointer" type="button" (click)="this.setCompanyDocuments()">{{"SAVE & CONTINUE"|toL10}}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xDriving licence_back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Manage-Drivers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Add-driver_visual" transform="translate(-800.000000, -1149.000000)">
+            <g id="Group-5" transform="translate(735.000000, 1105.000000)">
+                <g id="Drag-&amp;-Drop-Copy" transform="translate(0.000000, 24.000000)">
+                    <g id="Driving-licence_back" transform="translate(65.000000, 20.000000)">
+                        <circle id="Oval-3" fill="#E7F3F9" cx="60" cy="60" r="60"></circle>
+                        <ellipse id="Oval-3" fill="#DAEAF2" cx="60" cy="87.5" rx="49" ry="9.5"></ellipse>
+                        <g id="option-2-copy" transform="translate(18.000000, 27.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#E7F3F9" stroke-linejoin="round">
+                            <polygon id="Stroke-3" points="0 61 84 61 84 0 0 0"></polygon>
+                        </g>
+                        <g id="option-2-copy" transform="translate(22.000000, 31.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#FFFFFF" stroke-linejoin="round">
+                            <polygon id="Stroke-3" points="0 53 76 53 76 0 0 0"></polygon>
+                        </g>
+                        <path d="M31.0260904,44.5 L88,44.5" id="Stroke-6" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M31,52.5 L62.1618634,52.5" id="Stroke-6-Copy" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M64,71.5 L73.5131488,71.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M31,61.5 L88.5100021,61.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M79,71.5 L88.5131488,71.5" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

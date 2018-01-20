@@ -1,0 +1,25 @@
+﻿<div class="this.mainClassName">
+    <div [ngClass]="this.dragAreaClass" class="Upload_file">
+        <img bind-src="this.imagePath" [alt]="this.placeholderAltText" />
+        <span *ngIf="!this.isReadOnly">{{"Drop & Drag file here or Click to Browse"|toL10}}</span>
+        <input type="file"
+               #file
+               [multiple]="(maxFiles > 1)"
+               (change)="onFileChange($event)"
+               style="display:none" />
+    </div>
+    <span class="text-info smallText" *ngIf="!this.isReadOnly">
+        {{"Supported file format"|toL10}}:{{fileExt|toL10}}
+        &nbsp; | &nbsp; {{"Size limited to "|toL10}}{{maxSize}}{{"MB"|toL10}}
+
+    </span>
+    <span class="Upload_file_controls">
+        <a (click)="file.click()">{{"Browse"|toL10}}</a>
+        <a (click)="this.clearFile($event)">{{"Clear"|toL10}}</a>
+    </span>
+    <div class="row error errorValidationView" *ngIf="this.errors.length > 0">
+        <ul>
+            <li *ngFor="let err of this.errors">{{err}}</li>
+        </ul>
+    </div>
+</div>

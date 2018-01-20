@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xVehicle_image</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-4.2%" y="-5.6%" width="108.3%" height="117.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Bookings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Booking-Details_On-Request" transform="translate(-395.000000, -1381.000000)">
+            <g id="Vehicle-Details" transform="translate(320.000000, 1281.000000)">
+                <g id="Vehicle_image" transform="translate(75.000000, 100.000000)">
+                    <circle id="Oval-3" fill="#E7F3F9" cx="60" cy="60" r="60"></circle>
+                    <ellipse id="Oval-3" fill="#DAEAF2" cx="60.5" cy="98.5" rx="27.5" ry="4.5"></ellipse>
+                    <rect id="Rectangle-5" stroke="#C7E4F1" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" x="20" y="20" width="80" height="80" rx="40"></rect>
+                    <g id="Fleet-Copy" filter="url(#filter-1)" transform="translate(30.000000, 34.000000)" stroke="#C7E4F1" stroke-width="2">
+                        <path d="M51.3215182,38.7891765 L58.4064273,38.7891765 C59.1137909,38.7891765 59.5844273,38.3176471 59.5844273,37.6089412 L59.5844273,28.7487059 C59.5844273,28.2771765 59.2293364,27.8056471 58.7587,27.6870588 L50.7325182,27.0856471 L42.2441545,16.3505882 C42.0102455,16.1134118 41.7735182,15.9976471 41.4184273,15.9976471 L17.8443364,15.9976471 C17.4920636,15.9976471 17.1369727,16.1134118 17.0186091,16.3505882 L8.53024545,25.9138824 L1.35233636,29.5647059 C0.763336364,29.6832941 0.411063636,30.1548235 0.411063636,30.7477647 L3.28279091,38.9162353 C4.47488182,38.9162353 11.3033364,38.7891765 11.3033364,38.7891765 M21.2966091,38.7581176 L40.7110636,38.7863529" id="Stroke-1" fill="#FFFFFF"></path>
+                        <path d="M8.53137273,25.9150118 L50.7336455,27.0867765" id="Stroke-3"></path>
+                        <path d="M29,15.6989176 L29,25.0899765" id="Stroke-5"></path>
+                        <path d="M26.3608818,10.2449882 C28.4886091,8.26287059 31.8168818,8.38145882 33.7980636,10.5104" id="Stroke-7"></path>
+                        <path d="M23.5483364,7.22014118 C27.3444273,3.67943529 33.2851545,3.8912 36.8163364,7.69449412" id="Stroke-9"></path>
+                        <path d="M20.6337727,4.08235294 C26.1574091,-1.06776471 34.8035909,-0.76 39.9495909,4.77129412" id="Stroke-11"></path>
+                        <path d="M16.1931636,44.2292706 C13.2481636,44.2292706 10.8893455,41.8688 10.8893455,38.9153882 C10.8893455,35.9619765 13.2481636,33.6015059 16.1931636,33.6015059 C19.1409818,33.6015059 21.4969818,35.9619765 21.4969818,38.9153882 C21.4969818,41.8688 19.2593455,44.2292706 16.1931636,44.2292706 Z" id="Stroke-13" fill="#FFFFFF"></path>
+                        <path d="M46.0165727,44.2292706 C43.0687545,44.2292706 40.7127545,41.8688 40.7127545,38.9153882 C40.7127545,35.9619765 43.0687545,33.6015059 46.0165727,33.6015059 C48.9643909,33.6015059 51.3203909,35.9619765 51.3203909,38.9153882 C51.3203909,41.8688 48.9643909,44.2292706 46.0165727,44.2292706 Z" id="Stroke-15" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

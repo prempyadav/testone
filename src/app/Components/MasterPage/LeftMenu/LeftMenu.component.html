@@ -1,0 +1,42 @@
+﻿<div class="TC_logo">
+    <img src="/images/logo.png" alt="TripCenter" />
+</div>
+<div class="TC_navigation">
+    <ul>
+        <li *ngFor="let item of lefMenuItems" [routerLinkActive]="['active']">
+            <a [routerLink]="item.url">
+                <i [ngClass]="item.icon" class="icon_20x20"></i>
+                <span>{{item.name}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="TC_leftBottom">
+    <ul class="TC_timeZone">
+        <li>
+            <img src="/images/MenuIcons/us@2x.png" />
+            <span>
+                United Kingdom<br />
+                4:16 PM (GMT +1)
+            </span>
+        </li>
+        <li>
+            <img src="/images/MenuIcons/in@2x.png" alt="TripCenter" />
+            <span>
+                India <br />
+                8:47 PM (UTC +5:30)
+            </span>
+        </li>
+    </ul>
+    <div class="TC_footerLinks">
+        <span>
+            <a href="#">Contact Us</a> . <a href="#">
+                Feedback
+            </a>
+            <a href="#">Facebook</a> . <a href="#">Twitter</a> . <a href="#">LinkedIn</a>
+        </span>
+    </div>
+    <div class="TC_copyRights">
+        &copy; TripCenter.NET. All rights reserved
+    </div>
+</div>

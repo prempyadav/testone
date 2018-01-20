@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="128px" viewBox="0 0 120 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xTrading Licence</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Account-Management" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Step-2---Company-Documents" transform="translate(-660.000000, -594.000000)">
+            <g id="Trading-Licence" transform="translate(370.000000, 468.000000)">
+                <g transform="translate(290.000000, 127.000000)">
+                    <circle id="Oval-3" fill="#E7F3F9" cx="60" cy="67" r="60"></circle>
+                    <ellipse id="Oval-3" fill="#DAEAF2" cx="60" cy="97.5" rx="46" ry="9.5"></ellipse>
+                    <g id="option-2-copy" transform="translate(21.000000, 0.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#E7F3F9" stroke-linejoin="round">
+                        <polygon id="Stroke-3" points="0.754545455 99.5734153 77.7483636 99.5734153 77.7483636 0.711755233 0.754545455 0.711755233"></polygon>
+                    </g>
+                    <g id="option-2-copy" transform="translate(26.000000, 5.000000)" stroke-linecap="round" stroke-width="2" stroke="#C7E4F1" fill="#FFFFFF" stroke-linejoin="round">
+                        <polygon id="Stroke-3" points="0.657808858 89.6160738 67.7806247 89.6160738 67.7806247 0.64057971 0.657808858 0.64057971"></polygon>
+                    </g>
+                    <path d="M38,19 L82,19" id="Stroke-6" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M38,29 L82,29" id="Stroke-6-Copy" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M38,39 L82,39" id="Stroke-6-Copy-2" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M38,49 L55.5071414,49" id="Stroke-6-Copy-3" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M38,59 L50.7475488,59" id="Stroke-6-Copy-4" stroke="#C7E4F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <g id="Group-15" transform="translate(61.763636, 49.784290)" stroke="#C7E4F1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19.2298927,9.77033043 C19.2298927,14.9416928 15.0331109,19.1333449 9.85391091,19.1333449 C4.67622,19.1333449 0.479438182,14.9416928 0.479438182,9.77033043 C0.479438182,4.59896812 4.67622,0.407315942 9.85391091,0.407315942 C15.0331109,0.407315942 19.2298927,4.59896812 19.2298927,9.77033043 Z" id="Stroke-9"></path>
+                        <path d="M9.85406182,19.1339478 L2.88960727,33.9697739" id="Stroke-11"></path>
+                        <path d="M15.8329291,30.8209855 L9.85391091,19.1337971" id="Stroke-13"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+﻿<div class="pageLoader" style="display:none;">
+    <span><img src="/images/page_loader.gif" alt="Page Loader" /></span>
+</div>
+
+<div class="layoutContainer">
+    <div [hidden]="this.hideLeftMenu" class="leftMenuContainer">
+        <left-menu></left-menu>
+    </div>
+    <div class="contentContainer">
+        <div [hidden]="this.hideLeftMenu" class="topContainer">
+            <top-menu></top-menu>
+        </div>
+        <div class="dynamicPlaceHolder">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿
+
+<div class="Account_Mangementpg" [hidden]="this.isSubmit">
+    <div class="logo">
+        <h1>
+            <img src="/images/logo.png" width="80" />
+            <span><img src="/images/TopMenuIcons/help_icon.svg" onerror="this.src='/images/TopMenuIcons/help_icon.png'" alt="Help Center" /></span>
+        </h1>
+    </div>
+    <div class="TC_info">
+        <i></i>
+        {{"Please follow these steps to join TripCenter network" |toL10}}
+    </div>
+
+    <div class="MenuBar">
+        <div class="MenuBarbtn active" id="step1">
+            <div class="TC_processState">
+                <img [src]="this.stepProgressImages[0]" />
+            </div>
+            <span>{{"Company Details" |toL10}}</span>
+            <span *ngIf="this.stepEditable[0]" (click)="this.jumpToStep('company_details')" class="editLink">Edit Details</span>
+
+        </div>
+        <div class="MenuBarbtn" id="step2">
+            <div class="TC_processState">
+                <img [src]="this.stepProgressImages[1]" />
+            </div>
+            <span>{{"Company Documents" |toL10}}</span>
+            <span *ngIf="this.stepEditable[1]" (click)="this.jumpToStep('company_documents')" class="editLink">Edit Details</span>
+
+        </div>
+        <div class="MenuBarbtn" id="step3">
+            <div class="TC_processState">
+                <img [src]="this.stepProgressImages[2]" />
+            </div>
+            <span>{{"User Mangement" |toL10}}</span>
+            <span *ngIf="this.stepEditable[2]" (click)="this.jumpToStep('user_management')" class="editLink">Edit Details</span>
+        </div>
+        <div class="MenuBarbtn" id="step4">
+            <div class="TC_processState">
+                <img [src]="this.stepProgressImages[3]" />
+            </div>
+            <span>{{"Payment Details" |toL10}}</span>
+            <span *ngIf="this.stepEditable[3]" (click)="this.jumpToStep('payment_details')" class="editLink">Edit Details</span>
+        </div>
+        <div class="MenuBarbtn" id="step5">
+            <div class="TC_processState">
+                <img [src]="this.stepProgressImages[4]" />
+            </div>
+            <span>{{"Notification Settings" |toL10}}</span>
+            <span *ngIf="this.stepEditable[4]" (click)="this.jumpToStep('notification_settings')" class="editLink">Edit Details</span>
+        </div>
+
+        <div [ngClass]="this.progressClass" class="progress-bar progress-bar-striped active" style="height:7px"></div>
+    </div>
+    <h3 *ngIf="isReview" class="h3-header"><em>1</em>{{"Company Details"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':stepDivs[0],'fa-angle-down':!stepDivs[0]}" (click)="showhideSteps(0)"></i></h3>
+    <div [hidden]=!stepDivs[0] class="step1 steps" id="company_details" *ngIf="currentStep=='company_details' || isReview==true">
+        <company-details [isForReview]="this.isReview" (onSucess)=jumpToStep($event)></company-details>
+    </div>
+    <h3 *ngIf="isReview" class="h3-header"><em>2</em>{{"Company Documents"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':stepDivs[1],'fa-angle-down':!stepDivs[1]}" (click)="showhideSteps(1)"></i></h3>
+    <div [hidden]=!stepDivs[1] class="step2 steps" id="company_documents" *ngIf="currentStep=='company_documents' || isReview==true">
+        <company-documents [isForReview]="this.isReview" (onSucess)=jumpToStep($event)></company-documents>
+    </div>
+    <h3 *ngIf="isReview" class="h3-header"><em>3</em>{{"User Management"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':stepDivs[2],'fa-angle-down':!stepDivs[2]}" (click)="showhideSteps(2)"></i></h3>
+    <div [hidden]=!stepDivs[2] class="step3 steps" id="user_management" *ngIf="currentStep=='user_management' || isReview==true">
+        <user-management [isForReview]="this.isReview" (onSucess)=jumpToStep($event)></user-management>
+    </div>
+    <h3 *ngIf="isReview" class="h3-header"><em>4</em>{{"Payment Details"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':stepDivs[3],'fa-angle-down':!stepDivs[3]}" (click)="showhideSteps(3)"></i></h3>
+    <div [hidden]=!stepDivs[3] class="step4 steps" id="payment_details" *ngIf="currentStep=='payment_details' || isReview==true">
+        <payment-details [isForReview]="this.isReview" (onSucess)=jumpToStep($event)></payment-details>
+    </div>
+    <h3 *ngIf="isReview" class="h3-header"><em>5</em>{{"Notification Settings"|toL10}}<i id="ic1" class="fa " [ngClass]="{'fa-angle-up':stepDivs[4],'fa-angle-down':!stepDivs[4]}" (click)="showhideSteps(4)"></i></h3>
+    <div [hidden]=!stepDivs[4] class="step5 steps" id="notification_settings" *ngIf="currentStep=='notification_settings' || isReview==true">
+        <notification-settings [isForReview]="this.isReview" (onSucess)=jumpToStep($event)></notification-settings>
+    </div>
+    <div class="TC_actions text-center" *ngIf="isReview">
+        <button class="actBtn btn-TCDefault" (click)="submit()" type="button">{{"SUBMIT"|toL10}}</button>
+    </div>
+</div>
+<div id="submitData" class="modal" style="z-index:999999">
+    <div class="modal-content conformation_popup">
+        <div>
+            <div class="popImgs">
+                <img src="/images/PlaceHolder/Trading_Licence.svg" onerror="this.src='/images/PlaceHolder/Trading_Licence.png'" />
+                <img src="/images/PlaceHolder/Driving_Licence_front.svg" onerror="this.src='/images/PlaceHolder/Driving_Licence_front.png'" />
+                <img src="/images/PlaceHolder/PublicandProducts_Liability_Insurance.svg" onerror="this.src='/images/PlaceHolder/PublicandProducts_Liability_Insurance.png'" />
+            </div>
+            <div class="conformation_content">
+                <span><i class="fa fa-check-circle-o" aria-hidden="true"></i><b>{{"THANK YOU!" |toL10}}</b></span>
+                <p>{{"We've received your documents. We will contact if we need more information." |toL10}} </p>
+                <p>{{"If you need any help, please contact TripCenter supplier support team." |toL10}}</p>
+                <p>{{"We look forward to working with you." |toL10}}</p>
+                <div class="email_support">
+                    <img src="/images/email.svg" onerror="this.src='/images/email.png'" />
+                    <p><a href="mailtp:support@tripcenter.net">support@tripcenter.net</a></p>
+                </div>
+                <div class="or_lbl">
+                    <span></span>or
+                </div>
+                <div class="phone_support">
+                    <img src="/images/phone.svg" onerror="this.src='/images/phone.png'" />
+                    <p>{{"+44 (0) 20 3500 2300" |toL10}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="fleetbtn FleetBtn">
+            <a [routerLink]="this.nextStep" (click)="this.hideModal()">{{this.nextStepText |toL10}}</a>
+        </div>
+    </div>
+
+</div>
